@@ -205,7 +205,7 @@
   transition: all 0.6s ease-out;
 }
 
-/* Project Highlights */
+/* Project Highlights - FIXED FOR MOBILE */
 .project-highlights {
   margin-bottom: 1.5rem;
   width: 100%;
@@ -228,16 +228,21 @@
   padding: 0;
   display: inline-block;
   text-align: left;
+  max-width: 100%; /* Ensure it doesn't overflow */
 }
 
 .feature-point {
   color: #666;
   padding: 0.4rem 0;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 1.8rem; /* Increased padding for better spacing */
+  padding-right: 0.5rem; /* Added right padding */
   font-size: 0.95rem;
   text-align: left;
   transition: all 0.3s ease;
+  line-height: 1.5;
+  word-wrap: break-word; /* Ensure long words break */
+  overflow-wrap: break-word; /* Modern alternative */
 }
 
 .feature-point:hover {
@@ -249,10 +254,12 @@
   content: "✓";
   color: #2ecc71;
   position: absolute;
-  left: 0;
+  left: 0.5rem; /* Increased left spacing */
+  top: 0.4rem; /* Align vertically with text */
   font-weight: bold;
   font-size: 1rem;
   transition: all 0.3s ease;
+  width: 1rem; /* Fixed width for consistent spacing */
 }
 
 .feature-point:hover::before {
@@ -385,7 +392,7 @@
   transition-delay: 0.1s;
 }
 
-/* Mobile Styles */
+/* Mobile Styles - UPDATED FOR TICK MARK FIX */
 @media (max-width: 768px) {
   .projects-section {
     padding: 80px 0;
@@ -452,9 +459,25 @@
     padding: 0 1rem;
   }
 
+  /* FIXED: Better spacing for feature points on mobile */
   .feature-point {
     font-size: 0.95rem;
-    padding: 0.4rem 0;
+    padding: 0.5rem 0 0.5rem 2rem; /* Increased left padding for tick mark */
+    padding-right: 0.5rem;
+    line-height: 1.5;
+    text-align: left;
+    width: 100%;
+  }
+
+  .feature-point::before {
+    left: 0.7rem; /* More spacing on mobile */
+    top: 0.5rem;
+  }
+
+  .features-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem; /* Add some padding to prevent edge touching */
   }
 
   .tech-container {
@@ -467,7 +490,7 @@
   }
 }
 
-/* Small Mobile Styles */
+/* Small Mobile Styles - FURTHER IMPROVEMENTS */
 @media (max-width: 480px) {
   .project-item {
     padding: 1.5rem;
@@ -486,6 +509,20 @@
     gap: 1rem;
   }
 
+  /* FIXED: Even better spacing for very small screens */
+  .feature-point {
+    font-size: 0.9rem;
+    padding: 0.5rem 0 0.5rem 1.8rem;
+    padding-right: 0.3rem;
+    line-height: 1.4;
+  }
+
+  .feature-point::before {
+    left: 0.5rem;
+    top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
   .tech-container {
     gap: 0.3rem;
   }
@@ -498,6 +535,10 @@
   .projects-main-title::after {
     width: 50px;
     height: 2px;
+  }
+
+  .features-container {
+    padding: 0 0.3rem;
   }
 }
 

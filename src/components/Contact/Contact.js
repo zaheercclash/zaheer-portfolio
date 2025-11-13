@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import "./Contact.css";
 
 const Contact = () => {
@@ -39,12 +41,11 @@ const Contact = () => {
         reply_to: formData.email,
       };
 
-      // REPLACE THESE WITH YOUR ACTUAL EMAILJS CREDENTIALS
       await emailjs.send(
-        "service_44ok3bp", // ← Replace with your Service ID from Email Services
-        "template_o78jjkd", // ← Replace with your Template ID from Email Templates
+        "service_44ok3bp",
+        "template_o78jjkd",
         templateParams,
-        "XEblNjgbar2lqU2oq" // ← Replace with your Public Key from API Keys
+        "XEblNjgbar2lqU2oq"
       );
 
       setIsSent(true);
@@ -99,7 +100,9 @@ const Contact = () => {
                 </div>
 
                 <div className="contact-method" onClick={handleWhatsAppClick}>
-                  <div className="method-icon">💬</div>
+                  <div className="method-icon whatsapp-icon">
+                    <FontAwesomeIcon icon={faWhatsapp} />
+                  </div>
                   <div className="method-content">
                     <h4>WhatsApp</h4>
                     <p>+94 7 758 88849</p>

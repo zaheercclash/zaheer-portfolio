@@ -1,4 +1,12 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLinkedin,
+  faGithub,
+  faTwitter,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import "./Footer.css";
 
 const Footer = () => {
@@ -12,10 +20,17 @@ const Footer = () => {
   };
 
   const handleServiceClick = (service) => {
-    // You can add functionality here later
     console.log(`Service clicked: ${service}`);
-    // Or scroll to contact section for service inquiries
     scrollToSection("contact");
+  };
+
+  const handleEmailClick = () => {
+    window.location.href =
+      "mailto:zaheercclash@gmail.com?subject=Portfolio Inquiry&body=Hello Zaheer, I would like to discuss a project with you.";
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/94775888849", "_blank");
   };
 
   return (
@@ -40,7 +55,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>💼</span>
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </a>
                 <a
                   href="https://github.com/yourusername"
@@ -49,7 +64,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>🐙</span>
+                  <FontAwesomeIcon icon={faGithub} />
                 </a>
                 <a
                   href="https://twitter.com/yourusername"
@@ -58,8 +73,24 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>🐦</span>
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
+                <a
+                  href="https://wa.me/94775888849"
+                  className="social-link"
+                  aria-label="WhatsApp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} />
+                </a>
+                <button
+                  className="social-link"
+                  aria-label="Email"
+                  onClick={handleEmailClick}
+                >
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </button>
               </div>
             </div>
 
