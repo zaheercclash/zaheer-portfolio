@@ -26,6 +26,8 @@ const About = () => {
   ];
 
   useEffect(() => {
+    const currentRefs = sectionRefs.current; // Copy to variable inside effect
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,12 +43,12 @@ const About = () => {
       }
     );
 
-    sectionRefs.current.forEach((ref) => {
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      sectionRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };

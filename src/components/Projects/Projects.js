@@ -93,6 +93,8 @@ const Projects = () => {
   ];
 
   useEffect(() => {
+    const currentRefs = projectRefs.current; // Copy to variable inside effect
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -108,12 +110,12 @@ const Projects = () => {
       }
     );
 
-    projectRefs.current.forEach((ref) => {
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      projectRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };

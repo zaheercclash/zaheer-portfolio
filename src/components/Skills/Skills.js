@@ -4,7 +4,6 @@ import "./Skills.css";
 const Skills = () => {
   const [isVisible, setIsVisible] = useState({});
   const sectionRefs = useRef([]);
-  const skillRefs = useRef([]);
 
   const skillCategories = [
     {
@@ -44,6 +43,8 @@ const Skills = () => {
   ];
 
   useEffect(() => {
+    const currentRefs = sectionRefs.current; // Copy to variable inside effect
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -59,12 +60,12 @@ const Skills = () => {
       }
     );
 
-    sectionRefs.current.forEach((ref) => {
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      sectionRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };

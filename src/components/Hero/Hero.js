@@ -7,6 +7,8 @@ const Hero = () => {
   const heroRef = useRef(null);
 
   useEffect(() => {
+    const currentRef = heroRef.current; // Copy to variable inside effect
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,13 +25,13 @@ const Hero = () => {
       }
     );
 
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (heroRef.current) {
-        observer.unobserve(heroRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
