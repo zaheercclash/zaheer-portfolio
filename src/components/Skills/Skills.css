@@ -63,7 +63,6 @@
 }
 
 .category-icon {
-  font-size: 2.5rem;
   width: 70px;
   height: 70px;
   display: flex;
@@ -72,6 +71,19 @@
   background: linear-gradient(135deg, #667eea, #764ba2);
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  color: white;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.category-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 .category-header h3 {
@@ -96,6 +108,7 @@
   border-radius: 15px;
   transition: all 0.3s ease;
   border: 1px solid #e9ecef;
+  min-height: 90px; /* Consistent height for all skill items */
 }
 
 .skill-item:hover {
@@ -106,25 +119,29 @@
 
 .skill-info {
   flex: 1;
-  min-width: 0; /* Added to prevent flex item from overflowing */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%; /* Ensure full width */
 }
 
 .skill-name-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.8rem;
+  width: 100%;
 }
 
 .skill-name {
   color: #2c3e50;
   font-weight: 600;
   font-size: 1rem;
-  white-space: nowrap; /* Prevent text wrapping */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis for long text */
-  flex-shrink: 0; /* Prevent shrinking */
-  margin-right: 1rem; /* Add spacing */
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  margin-right: 1rem;
 }
 
 .skill-bar {
@@ -134,6 +151,7 @@
   overflow: hidden;
   position: relative;
   width: 100%; /* Ensure full width */
+  min-width: 0; /* Prevent overflow */
 }
 
 .skill-progress {
@@ -142,6 +160,7 @@
   position: relative;
   transition: width 1.5s ease-in-out;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 0; /* Ensure progress bar doesn't overflow */
 }
 
 .progress-glow {
@@ -178,9 +197,10 @@
   letter-spacing: 0.5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  flex-shrink: 0; /* Prevent badge from shrinking */
-  min-width: 60px; /* Set minimum width for consistency */
+  flex-shrink: 0;
+  min-width: 60px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .skill-badge:hover {
@@ -227,7 +247,6 @@
 }
 
 .summary-icon {
-  font-size: 3rem;
   width: 80px;
   height: 80px;
   display: flex;
@@ -237,6 +256,19 @@
   border-radius: 20px;
   flex-shrink: 0;
   box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+  color: white;
+  padding: 18px;
+  transition: all 0.3s ease;
+}
+
+.summary-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 .summary-content h3 {
@@ -251,30 +283,6 @@
   line-height: 1.6;
   margin: 0;
   font-size: 0.95rem;
-}
-
-/* Animation for skill bars when they come into view */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.skill-category {
-  animation: slideInUp 0.6s ease-out;
-}
-
-.skill-category:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.skill-category:nth-child(3) {
-  animation-delay: 0.4s;
 }
 
 /* Skills Animation Classes */
@@ -402,6 +410,11 @@
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
 }
 
+.skill-category:hover .category-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
 .skill-item:hover {
   transform: translateX(8px) scale(1.02);
   background: white;
@@ -422,20 +435,9 @@
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
-.summary-icon {
-  transition: all 0.3s ease;
-}
-
 .summary-card:hover .summary-icon {
   transform: scale(1.1) rotate(5deg);
-}
-
-.category-icon {
-  transition: all 0.3s ease;
-}
-
-.skill-category:hover .category-icon {
-  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, #2ecc71, #3498db);
 }
 
 /* Enhanced progress glow animation */
@@ -447,7 +449,7 @@
   animation-duration: 1s;
 }
 
-/* Responsive Design - UPDATED FOR CONSISTENT SKILL BARS */
+/* Responsive Design */
 @media (max-width: 768px) {
   .skills {
     padding: 80px 0;
@@ -467,28 +469,29 @@
     flex-direction: column;
     gap: 1rem;
     text-align: center;
-    align-items: stretch; /* Stretch items to full width */
+    align-items: stretch;
+    min-height: 110px; /* Increased height for mobile */
   }
 
   .skill-info {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
   }
 
   .skill-name {
-    white-space: normal; /* Allow wrapping on mobile */
+    white-space: normal;
     text-align: center;
     margin-right: 0;
     margin-bottom: 0.5rem;
-    display: block; /* Make it block level */
+    display: block;
   }
 
   .skill-bar {
-    width: 100%; /* Ensure full width */
-    margin: 0 auto; /* Center the bar */
+    width: 100%;
+    margin: 0 auto;
   }
 
   .skill-badge {
-    align-self: center; /* Center the badge */
+    align-self: center;
     margin-top: 0.5rem;
   }
 
@@ -512,7 +515,23 @@
   .category-icon {
     width: 60px;
     height: 60px;
-    font-size: 2rem;
+    padding: 14px;
+  }
+
+  .category-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .summary-icon {
+    width: 70px;
+    height: 70px;
+    padding: 16px;
+  }
+
+  .summary-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   /* Mobile animation adjustments */
@@ -625,12 +644,18 @@
 
   .skill-item {
     padding: 1rem;
+    min-height: 100px;
   }
 
   .summary-icon {
     width: 60px;
     height: 60px;
-    font-size: 2rem;
+    padding: 14px;
+  }
+
+  .summary-icon svg {
+    width: 20px;
+    height: 20px;
   }
 }
 

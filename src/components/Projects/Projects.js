@@ -1,6 +1,63 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Projects.css";
 
+// SVG Icons Components
+const WebIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <circle cx="12" cy="12" r="10" />
+    <line x1="2" y1="12" x2="22" y2="12" />
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+  </svg>
+);
+
+const MobileIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+    <line x1="12" y1="18" x2="12" y2="18" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="3"
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+
+const CodeIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <polyline points="16 18 22 12 16 6" />
+    <polyline points="8 6 2 12 8 18" />
+  </svg>
+);
+
 const Projects = () => {
   const [isVisible, setIsVisible] = useState({});
   const projectRefs = useRef([]);
@@ -12,6 +69,7 @@ const Projects = () => {
         "A full-stack hotel booking platform with real-time availability, online reservations, and admin dashboard. Built with modern technologies for seamless user experience.",
       technologies: ["Next.js", "Sanity CMS", "React", "Node.js", "MongoDB"],
       category: "Web Application",
+      icon: <WebIcon />,
       features: [
         "Real-time booking",
         "Admin dashboard",
@@ -26,6 +84,7 @@ const Projects = () => {
         "A Flutter-based mobile application for roommates to split expenses, manage bills, and track shared payments with intuitive UI and real-time updates.",
       technologies: ["Flutter", "Dart", "Firebase", "Provider"],
       category: "Mobile Application",
+      icon: <MobileIcon />,
       features: [
         "Expense splitting",
         "Bill tracking",
@@ -40,6 +99,7 @@ const Projects = () => {
         "Feature-rich e-commerce application with product catalog, shopping cart, user authentication, and order management system.",
       technologies: ["Flutter", "Dart", "REST API", "SQLite"],
       category: "Mobile Application",
+      icon: <MobileIcon />,
       features: [
         "Product catalog",
         "Shopping cart",
@@ -54,6 +114,7 @@ const Projects = () => {
         "Productivity application for task management with drag-drop functionality, reminders, and team collaboration features.",
       technologies: ["Flutter", "Dart", "Firebase", "Cloud Firestore"],
       category: "Mobile Application",
+      icon: <MobileIcon />,
       features: [
         "Drag & drop",
         "Team collaboration",
@@ -68,6 +129,7 @@ const Projects = () => {
         "Beautiful weather application with location-based forecasts, detailed weather data, and customizable themes.",
       technologies: ["Flutter", "Dart", "Weather API", "Geolocation"],
       category: "Mobile Application",
+      icon: <MobileIcon />,
       features: [
         "Location-based",
         "7-day forecast",
@@ -82,6 +144,7 @@ const Projects = () => {
         "Mobile application for tracking personal expenses, income, and financial goals with charts and spending insights.",
       technologies: ["Flutter", "Dart", "Charts", "Local Storage"],
       category: "Mobile Application",
+      icon: <MobileIcon />,
       features: [
         "Expense tracking",
         "Financial charts",
@@ -93,7 +156,7 @@ const Projects = () => {
   ];
 
   useEffect(() => {
-    const currentRefs = projectRefs.current; // Copy to variable inside effect
+    const currentRefs = projectRefs.current;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -124,8 +187,8 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <div className="projects-container">
-        <h2 className="projects-main-title">My Projects</h2>
-        <p className="projects-subtitle">
+        <h2 className="section-title">My Projects</h2>
+        <p className="section-subtitle">
           Here are some of the projects I've worked on, showcasing my skills in
           web and mobile development.
         </p>
@@ -140,17 +203,31 @@ const Projects = () => {
               }`}
             >
               <div className="project-header-info">
-                <div className="project-type">{project.category}</div>
-                <div className="project-completion">{project.status}</div>
+                <div className="project-type">
+                  <span className="project-type-icon">{project.icon}</span>
+                  {project.category}
+                </div>
+                <div className="project-completion">
+                  <span className="completion-dot"></span>
+                  {project.status}
+                </div>
               </div>
               <h3 className="project-name">{project.title}</h3>
               <p className="project-summary">{project.description}</p>
 
               <div className="project-highlights">
-                <h4 className="highlights-heading">Key Features:</h4>
+                <h4 className="highlights-heading">
+                  <span className="highlights-icon">
+                    <CheckIcon />
+                  </span>
+                  Key Features:
+                </h4>
                 <ul className="features-container">
                   {project.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="feature-point">
+                      <span className="feature-icon">
+                        <CheckIcon />
+                      </span>
                       {feature}
                     </li>
                   ))}
@@ -158,7 +235,12 @@ const Projects = () => {
               </div>
 
               <div className="project-tech">
-                <h4 className="tech-heading">Technologies:</h4>
+                <h4 className="tech-heading">
+                  <span className="tech-icon">
+                    <CodeIcon />
+                  </span>
+                  Technologies:
+                </h4>
                 <div className="tech-container">
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} className="tech-badge">
