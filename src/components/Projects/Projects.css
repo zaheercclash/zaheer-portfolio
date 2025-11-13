@@ -8,6 +8,7 @@
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #2c3e50;
+  font-weight: 700;
 }
 
 .section-subtitle {
@@ -76,12 +77,14 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 700;
+  text-align: left; /* Default for desktop */
 }
 
 .project-card p {
   color: #666;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  text-align: left; /* Default for desktop */
 }
 
 .project-features {
@@ -93,6 +96,7 @@
   font-size: 1rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
+  text-align: left; /* Default for desktop */
 }
 
 .project-features ul {
@@ -106,6 +110,7 @@
   position: relative;
   padding-left: 1.2rem;
   font-size: 0.9rem;
+  text-align: left; /* Default for desktop */
 }
 
 .project-features li::before {
@@ -121,6 +126,7 @@
   font-size: 1rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
+  text-align: left; /* Default for desktop */
 }
 
 .tech-tags {
@@ -143,20 +149,112 @@
   transform: scale(1.05);
 }
 
+/* Mobile Styles */
 @media (max-width: 768px) {
+  .projects {
+    padding: 80px 0;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
     padding: 0 1rem;
+    gap: 1.5rem;
   }
 
   .project-card {
     padding: 2rem;
+    text-align: center; /* Center everything in mobile */
   }
 
   .project-header {
     flex-direction: column;
-    align-items: start;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-card h3 {
+    text-align: center; /* Center title in mobile */
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-card p {
+    text-align: center; /* Center description in mobile */
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-features {
+    text-align: center; /* Center features section in mobile */
+  }
+
+  .project-features h4 {
+    text-align: center; /* Center features title in mobile */
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-features ul {
+    display: inline-block;
+    text-align: left; /* But keep list items left-aligned for readability */
+  }
+
+  .project-features li {
+    text-align: left; /* Keep list items left-aligned */
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+  }
+
+  .project-technologies {
+    text-align: center; /* Center technologies section in mobile */
+  }
+
+  .project-technologies h4 {
+    text-align: center; /* Center technologies title in mobile */
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-tags {
+    justify-content: center; /* Center tech tags in mobile */
+    gap: 0.4rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+  }
+
+  .projects-grid {
+    padding: 0 0.5rem;
+    gap: 1rem;
   }
 
   .tech-tags {
