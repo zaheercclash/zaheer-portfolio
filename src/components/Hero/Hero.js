@@ -175,10 +175,12 @@ const Hero = () => {
             </span>
             <span>Available for Freelance Projects</span>
           </div>
+
           <h1 className={isVisible ? "hero-visible" : "hero-hidden"}>
             <span className="hero-greeting">Hello, I'm</span>
             <span className="hero-name">Zaheer</span>
           </h1>
+
           <h2
             className={`hero-title ${
               isVisible ? "hero-visible" : "hero-hidden"
@@ -187,6 +189,7 @@ const Hero = () => {
             <span className="title-text">Software Engineer</span>
             <span className="title-underline"></span>
           </h2>
+
           <p
             className={`hero-description ${
               isVisible ? "hero-visible" : "hero-hidden"
@@ -200,6 +203,7 @@ const Hero = () => {
             <span className="tech-text">Flutter</span>, and cutting-edge
             technologies.
           </p>
+
           <div
             className={`hero-buttons ${
               isVisible ? "hero-visible" : "hero-hidden"
@@ -220,6 +224,7 @@ const Hero = () => {
               <div className="btn-hover-effect"></div>
             </a>
           </div>
+
           <div
             className={`hero-stats ${
               isVisible ? "hero-visible" : "hero-hidden"
