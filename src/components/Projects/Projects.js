@@ -90,37 +90,39 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects">
-      <div className="container">
-        <h2 className="section-title">My Projects</h2>
-        <p className="section-subtitle">
+    <section id="projects" className="projects-section">
+      <div className="projects-container">
+        <h2 className="projects-main-title">My Projects</h2>
+        <p className="projects-subtitle">
           Here are some of the projects I've worked on, showcasing my skills in
           web and mobile development.
         </p>
-        <div className="projects-grid">
+        <div className="projects-grid-container">
           {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-header">
-                <div className="project-category">{project.category}</div>
-                <div className="project-status">{project.status}</div>
+            <div key={index} className="project-item">
+              <div className="project-header-info">
+                <div className="project-type">{project.category}</div>
+                <div className="project-completion">{project.status}</div>
               </div>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <h3 className="project-name">{project.title}</h3>
+              <p className="project-summary">{project.description}</p>
 
-              <div className="project-features">
-                <h4>Key Features:</h4>
-                <ul>
+              <div className="project-highlights">
+                <h4 className="highlights-heading">Key Features:</h4>
+                <ul className="features-container">
                   {project.features.map((feature, featureIndex) => (
-                    <li key={featureIndex}>{feature}</li>
+                    <li key={featureIndex} className="feature-point">
+                      {feature}
+                    </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="project-technologies">
-                <h4>Technologies:</h4>
-                <div className="tech-tags">
+              <div className="project-tech">
+                <h4 className="tech-heading">Technologies:</h4>
+                <div className="tech-container">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
+                    <span key={techIndex} className="tech-badge">
                       {tech}
                     </span>
                   ))}
