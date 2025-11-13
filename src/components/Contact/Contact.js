@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp as faWhatsappBrand } from "@fortawesome/free-brands-svg-icons";
 import {
-  faWhatsapp,
   faPaperPlane,
   faEnvelope,
   faUser,
   faComments,
 } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp as faWhatsappBrand } from "@fortawesome/free-brands-svg-icons";
 import "./Contact.css";
 
 const Contact = () => {
