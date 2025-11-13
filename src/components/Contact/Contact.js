@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import {
+  faWhatsapp,
+  faPaperPlane,
+  faEnvelope,
+  faUser,
+  faComments,
+} from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp as faWhatsappBrand } from "@fortawesome/free-brands-svg-icons";
 import "./Contact.css";
 
 const Contact = () => {
@@ -79,7 +86,10 @@ const Contact = () => {
         <div className="contact-content">
           <div className="contact-info">
             <div className="info-card">
-              <h3>Let's Start a Project</h3>
+              <div className="info-card-header">
+                <FontAwesomeIcon icon={faComments} className="info-card-icon" />
+                <h3>Start Your Project</h3>
+              </div>
               <p>
                 I'm always excited to take on new challenges and collaborate on
                 innovative projects. Whether you need a website, mobile app, or
@@ -89,19 +99,19 @@ const Contact = () => {
 
               <div className="contact-methods">
                 <div className="contact-method" onClick={handleEmailClick}>
-                  <div className="method-icon">📧</div>
+                  <div className="method-icon email-icon">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                  </div>
                   <div className="method-content">
-                    <h4>Email Me Directly</h4>
+                    <h4>Email Directly</h4>
                     <p>zaheercclash@gmail.com</p>
-                    <span className="method-hint">
-                      Click to open your email client
-                    </span>
+                    <span className="method-hint">Opens your email client</span>
                   </div>
                 </div>
 
                 <div className="contact-method" onClick={handleWhatsAppClick}>
                   <div className="method-icon whatsapp-icon">
-                    <FontAwesomeIcon icon={faWhatsapp} />
+                    <FontAwesomeIcon icon={faWhatsappBrand} />
                   </div>
                   <div className="method-content">
                     <h4>WhatsApp</h4>
@@ -122,55 +132,70 @@ const Contact = () => {
 
           <div className="contact-form-container">
             <form className="contact-form" onSubmit={handleSubmit}>
-              <h3>Send me a message</h3>
+              <div className="form-header">
+                <FontAwesomeIcon icon={faPaperPlane} className="form-icon" />
+                <h3>Send Message</h3>
+              </div>
 
               {isSent && (
                 <div className="success-message">
-                  ✅ Thank you! Your message has been sent successfully. I'll
-                  get back to you soon!
+                  <FontAwesomeIcon
+                    icon={faPaperPlane}
+                    className="success-icon"
+                  />
+                  <div>
+                    <strong>Message Sent!</strong>
+                    <p>Thank you! I'll get back to you soon.</p>
+                  </div>
                 </div>
               )}
 
               <div className="form-group">
-                <label htmlFor="name">Full Name *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  required
-                  disabled={isLoading}
-                />
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faUser} className="input-icon" />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    required
+                    disabled={isLoading}
+                  />
+                </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email address"
-                  required
-                  disabled={isLoading}
-                />
+                <div className="input-container">
+                  <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email address"
+                    required
+                    disabled={isLoading}
+                  />
+                </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Your Message *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project..."
-                  rows="5"
-                  required
-                  disabled={isLoading}
-                ></textarea>
+                <div className="input-container textarea-container">
+                  <FontAwesomeIcon icon={faComments} className="input-icon" />
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project..."
+                    rows="5"
+                    required
+                    disabled={isLoading}
+                  ></textarea>
+                </div>
               </div>
 
               <button
@@ -181,10 +206,11 @@ const Contact = () => {
                 {isLoading ? (
                   <>
                     <div className="loading-spinner"></div>
-                    <span>Sending...</span>
+                    <span>Sending Message...</span>
                   </>
                 ) : (
                   <>
+                    <FontAwesomeIcon icon={faPaperPlane} className="btn-icon" />
                     <span>Send Message</span>
                     <div className="btn-hover-effect"></div>
                   </>
@@ -192,7 +218,8 @@ const Contact = () => {
               </button>
 
               <p className="form-note">
-                Or email me directly at <strong>zaheercclash@gmail.com</strong>
+                Prefer email? Contact me directly at{" "}
+                <strong>zaheercclash@gmail.com</strong>
               </p>
             </form>
           </div>
