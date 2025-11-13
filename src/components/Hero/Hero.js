@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Hero.css";
-import profileImage from "../../assets/images/zaheer-profile.jpg";
+import profileImage from "../../assets/images/zaheer-profile.jpeg";
 
 // SVG Icons Components
 const RocketIcon = () => (
