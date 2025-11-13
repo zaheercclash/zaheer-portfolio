@@ -1,0 +1,293 @@
+.about {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.intro-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f2f6;
+}
+
+.intro-card h3 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.intro-card p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.intro-card strong {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.skills-grid h4 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f8f9fa;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  border-radius: 12px;
+}
+
+.skill-name {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #f1f2f6;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 20px;
+}
+
+.stat-content h3 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+  font-weight: 800;
+}
+
+.stat-content p {
+  color: #7f8c8d;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.education-section {
+  background: white;
+  padding: 3rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f2f6;
+}
+
+.education-section h3 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.education-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border-left: 4px solid #3498db;
+}
+
+.education-item:hover {
+  background: #e9ecef;
+  transform: translateX(10px);
+}
+
+.edu-icon {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.edu-content h4 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.edu-degree {
+  color: #3498db;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.edu-year {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .about-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .about-content {
+    padding: 0 1rem;
+  }
+
+  .intro-card,
+  .education-section {
+    padding: 2rem;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .education-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .edu-icon {
+    align-self: center;
+  }
+}
