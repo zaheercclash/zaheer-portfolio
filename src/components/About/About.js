@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./About.css";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState({});
+  const sectionRefs = useRef([]);
+
   const skills = [
     { name: "Frontend Development", icon: "💻" },
     { name: "Mobile Development", icon: "📱" },
@@ -22,10 +25,43 @@ const About = () => {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible((prev) => ({
+            ...prev,
+            [entry.target.dataset.section]: entry.isIntersecting,
+          }));
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section id="about" className="about">
       <div className="container">
-        <div className="about-header">
+        <div
+          ref={(el) => (sectionRefs.current[0] = el)}
+          data-section="header"
+          className={`about-header ${
+            isVisible.header ? "about-visible" : "about-hidden"
+          }`}
+        >
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">
             Get to know the person behind the code
@@ -35,7 +71,13 @@ const About = () => {
         <div className="about-content">
           <div className="about-main">
             <div className="about-text">
-              <div className="intro-card">
+              <div
+                ref={(el) => (sectionRefs.current[1] = el)}
+                data-section="intro"
+                className={`intro-card ${
+                  isVisible.intro ? "about-visible" : "about-hidden"
+                }`}
+              >
                 <h3>My Journey</h3>
                 <p>
                   I'm a passionate <strong>Software Engineer</strong> with
@@ -53,7 +95,13 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="skills-grid">
+              <div
+                ref={(el) => (sectionRefs.current[2] = el)}
+                data-section="skills"
+                className={`skills-grid ${
+                  isVisible.skills ? "about-visible" : "about-hidden"
+                }`}
+              >
                 <h4>What I Do</h4>
                 <div className="skills-list">
                   {skills.map((skill, index) => (
@@ -66,11 +114,17 @@ const About = () => {
               </div>
             </div>
 
-            <div className="about-stats">
+            <div
+              ref={(el) => (sectionRefs.current[3] = el)}
+              data-section="stats"
+              className={`about-stats ${
+                isVisible.stats ? "about-visible" : "about-hidden"
+              }`}
+            >
               <div className="stat-card">
                 <div className="stat-icon">🚀</div>
                 <div className="stat-content">
-                  <h3>10+</h3>
+                  <h3>3+</h3>
                   <p>Projects Completed</p>
                 </div>
               </div>
@@ -101,7 +155,13 @@ const About = () => {
             </div>
           </div>
 
-          <div className="education-section">
+          <div
+            ref={(el) => (sectionRefs.current[4] = el)}
+            data-section="education"
+            className={`education-section ${
+              isVisible.education ? "about-visible" : "about-hidden"
+            }`}
+          >
             <h3>Education & Background</h3>
             <div className="education-timeline">
               {education.map((edu, index) => (

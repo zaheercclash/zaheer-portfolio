@@ -334,3 +334,309 @@
     font-size: 2rem;
   }
 }
+/* Skills Animation Classes */
+.skills-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skills-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Skill item animations */
+.skill-hidden {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease-out;
+}
+
+.skill-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.6s ease-out;
+}
+
+/* Staggered animation delays for skills sections */
+.skills-header.skills-visible {
+  transition-delay: 0.1s;
+}
+
+.skill-category.skills-visible:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.skill-category.skills-visible:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.skill-category.skills-visible:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.skills-summary.skills-visible {
+  transition-delay: 0.5s;
+}
+
+/* Staggered delays for skill items within categories */
+.skill-category.skills-visible .skill-item:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.skill-category.skills-visible .skill-item:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.skill-category.skills-visible .skill-item:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+.skill-category.skills-visible .skill-item:nth-child(4) {
+  transition-delay: 0.6s;
+}
+
+.skill-category.skills-visible .skill-item:nth-child(5) {
+  transition-delay: 0.7s;
+}
+
+.skill-category.skills-visible .skill-item:nth-child(6) {
+  transition-delay: 0.8s;
+}
+
+/* Staggered delays for summary cards */
+.skills-summary.skills-visible .summary-card:nth-child(1) {
+  transition-delay: 0.6s;
+}
+
+.skills-summary.skills-visible .summary-card:nth-child(2) {
+  transition-delay: 0.7s;
+}
+
+.skills-summary.skills-visible .summary-card:nth-child(3) {
+  transition-delay: 0.8s;
+}
+
+/* Enhanced header animations */
+.skills-header.skills-hidden {
+  transform: translateY(-30px);
+}
+
+/* Enhanced skill category animations */
+.skill-category.skills-hidden:nth-child(odd) {
+  transform: translateX(-40px);
+}
+
+.skill-category.skills-hidden:nth-child(even) {
+  transform: translateX(40px);
+}
+
+.skill-category.skills-visible {
+  transform: translateX(0);
+}
+
+/* Enhanced progress bar animation */
+.skill-progress {
+  transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+}
+
+/* Enhanced summary card animations */
+.summary-card.skills-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.summary-card.skills-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced hover effects with animations */
+.skill-category:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item:hover {
+  transform: translateX(8px) scale(1.02);
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-badge {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-item:hover .skill-badge {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.summary-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.summary-icon {
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover .summary-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.category-icon {
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover .category-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Enhanced progress glow animation */
+.progress-glow {
+  animation: shimmer 2s infinite;
+}
+
+.skill-item:hover .progress-glow {
+  animation-duration: 1s;
+}
+
+/* Mobile adjustments for animations */
+@media (max-width: 768px) {
+  .skills-hidden {
+    transform: translateY(30px);
+  }
+
+  .skills-header.skills-hidden {
+    transform: translateY(-20px);
+  }
+
+  .skill-category.skills-hidden:nth-child(odd),
+  .skill-category.skills-hidden:nth-child(even) {
+    transform: translateY(30px);
+  }
+
+  .skill-hidden {
+    transform: translateX(-20px);
+  }
+
+  /* Adjust delays for mobile */
+  .skills-header.skills-visible {
+    transition-delay: 0.1s;
+  }
+
+  .skill-category.skills-visible:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+
+  .skill-category.skills-visible:nth-child(2) {
+    transition-delay: 0.3s;
+  }
+
+  .skill-category.skills-visible:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+
+  .skills-summary.skills-visible {
+    transition-delay: 0.5s;
+  }
+
+  .skill-category.skills-visible .skill-item:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+
+  .skill-category.skills-visible .skill-item:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+
+  .skill-category.skills-visible .skill-item:nth-child(3) {
+    transition-delay: 0.5s;
+  }
+
+  .skill-category.skills-visible .skill-item:nth-child(4) {
+    transition-delay: 0.6s;
+  }
+
+  .skills-summary.skills-visible .summary-card:nth-child(1) {
+    transition-delay: 0.6s;
+  }
+
+  .skills-summary.skills-visible .summary-card:nth-child(2) {
+    transition-delay: 0.7s;
+  }
+
+  .skills-summary.skills-visible .summary-card:nth-child(3) {
+    transition-delay: 0.8s;
+  }
+
+  /* Reduce hover effects on mobile */
+  .skill-category:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+
+  .skill-item:hover {
+    transform: translateX(5px) scale(1.01);
+  }
+
+  .summary-card:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .skills-hidden {
+    transform: translateY(20px);
+  }
+
+  .skills-header.skills-hidden {
+    transform: translateY(-15px);
+  }
+
+  .skill-category.skills-hidden:nth-child(odd),
+  .skill-category.skills-hidden:nth-child(even) {
+    transform: translateY(20px);
+  }
+
+  .skill-hidden {
+    transform: translateX(-15px);
+  }
+}
+
+/* Ensure section title line animation */
+.section-title {
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+  transition: all 0.8s ease-out 0.3s;
+}
+
+.skills-hidden .section-title::after {
+  transform: translateX(-50%) scaleX(0);
+  opacity: 0;
+}
+
+.skills-visible .section-title::after {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Rest of your existing CSS remains below... */

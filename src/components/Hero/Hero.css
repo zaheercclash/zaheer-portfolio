@@ -415,3 +415,327 @@
     padding: 12px 25px;
   }
 }
+
+/* Hero Animation Classes */
+.hero-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Staggered animation delays for hero elements */
+.hero-badge.hero-visible {
+  transition-delay: 0.1s;
+}
+
+.hero-content h1.hero-visible {
+  transition-delay: 0.2s;
+}
+
+.hero-title.hero-visible {
+  transition-delay: 0.3s;
+}
+
+.hero-description.hero-visible {
+  transition-delay: 0.4s;
+}
+
+.hero-buttons.hero-visible {
+  transition-delay: 0.5s;
+}
+
+.hero-stats.hero-visible {
+  transition-delay: 0.6s;
+}
+
+.image-container.hero-visible {
+  transition-delay: 0.7s;
+}
+
+.experience-card.hero-visible {
+  transition-delay: 0.8s;
+}
+
+.scroll-indicator.hero-visible {
+  transition-delay: 1.2s;
+}
+
+/* Enhanced existing animations with scroll triggers */
+.hero-badge.hero-hidden {
+  transform: translateY(-30px);
+}
+
+.hero-content h1.hero-hidden {
+  transform: translateY(40px);
+}
+
+.hero-title.hero-hidden {
+  transform: translateY(40px);
+}
+
+.hero-description.hero-hidden {
+  transform: translateY(40px);
+}
+
+.hero-buttons.hero-hidden {
+  transform: translateY(40px);
+}
+
+.hero-stats.hero-hidden {
+  transform: translateY(40px);
+}
+
+.image-container.hero-hidden {
+  transform: translateX(50px) scale(0.9);
+}
+
+.experience-card.hero-hidden {
+  transform: translateY(40px) scale(0.9);
+}
+
+.scroll-indicator.hero-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Enhanced button animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Enhanced profile image animation */
+.profile-image {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-container.hero-visible .profile-image {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Enhanced floating elements */
+.floating-element {
+  transition: all 0.8s ease-out;
+}
+
+.image-container.hero-visible .floating-element {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced experience card */
+.experience-card {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-container.hero-visible ~ .experience-card {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Enhanced scroll indicator */
+.scroll-indicator {
+  transition: all 0.8s ease-out;
+}
+
+.scroll-indicator.hero-visible {
+  animation: bounce 2s infinite;
+}
+
+/* Enhanced hero stats */
+.stat {
+  transition: all 0.4s ease-out;
+}
+
+.hero-stats.hero-visible .stat:nth-child(1) {
+  transition-delay: 0.6s;
+}
+
+.hero-stats.hero-visible .stat:nth-child(2) {
+  transition-delay: 0.7s;
+}
+
+.hero-stats.hero-visible .stat:nth-child(3) {
+  transition-delay: 0.8s;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  transition: all 0.3s ease;
+}
+
+.stat:hover .stat-number {
+  transform: scale(1.1);
+  color: #e67e22;
+}
+
+/* Enhanced shapes animation */
+.shape {
+  transition: all 1s ease-out;
+}
+
+.hero-visible .shape-1 {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.hero-visible .shape-2 {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.hero-visible .shape-3 {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* Mobile adjustments for animations */
+@media (max-width: 768px) {
+  .hero-hidden {
+    transform: translateY(20px);
+  }
+
+  .hero-content h1.hero-hidden {
+    transform: translateY(30px);
+  }
+
+  .hero-title.hero-hidden,
+  .hero-description.hero-hidden,
+  .hero-buttons.hero-hidden,
+  .hero-stats.hero-hidden {
+    transform: translateY(30px);
+  }
+
+  .image-container.hero-hidden {
+    transform: translateY(30px) scale(0.95);
+  }
+
+  .experience-card.hero-hidden {
+    transform: translateY(30px) scale(0.95);
+  }
+
+  /* Adjust delays for mobile */
+  .hero-badge.hero-visible {
+    transition-delay: 0.1s;
+  }
+
+  .hero-content h1.hero-visible {
+    transition-delay: 0.2s;
+  }
+
+  .hero-title.hero-visible {
+    transition-delay: 0.3s;
+  }
+
+  .hero-description.hero-visible {
+    transition-delay: 0.4s;
+  }
+
+  .hero-buttons.hero-visible {
+    transition-delay: 0.5s;
+  }
+
+  .hero-stats.hero-visible {
+    transition-delay: 0.6s;
+  }
+
+  .image-container.hero-visible {
+    transition-delay: 0.4s;
+  }
+
+  .experience-card.hero-visible {
+    transition-delay: 0.5s;
+  }
+
+  .scroll-indicator.hero-visible {
+    transition-delay: 0.8s;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .hero-hidden {
+    transform: translateY(15px);
+  }
+
+  .hero-content h1.hero-hidden {
+    transform: translateY(20px);
+  }
+
+  .hero-title.hero-hidden,
+  .hero-description.hero-hidden,
+  .hero-buttons.hero-hidden,
+  .hero-stats.hero-hidden {
+    transform: translateY(20px);
+  }
+}
+
+/* Enhanced keyframe animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}

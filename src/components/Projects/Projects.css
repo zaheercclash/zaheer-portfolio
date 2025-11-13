@@ -41,12 +41,12 @@
   font-size: 1.1rem;
   color: #7f8c8d;
   max-width: 600px;
-  margin: 2rem auto 3rem; /* Increased top margin to account for the line */
+  margin: 2rem auto 3rem;
   line-height: 1.6;
   width: 100%;
 }
 
-/* Rest of your existing CSS remains the same */
+/* Projects Grid */
 .projects-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -55,12 +55,66 @@
   justify-items: center;
 }
 
+/* Animation Classes - Both Enter and Exit */
+.project-hidden {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.6s ease-out;
+}
+
+.project-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.6s ease-out;
+}
+
+/* Staggered animation delays for enter */
+.project-visible:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.project-visible:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.project-visible:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.project-visible:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.project-visible:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.project-visible:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+/* Staggered animation delays for exit */
+.project-hidden:nth-child(1) {
+  transition-delay: 0.6s;
+}
+.project-hidden:nth-child(2) {
+  transition-delay: 0.5s;
+}
+.project-hidden:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.project-hidden:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.project-hidden:nth-child(5) {
+  transition-delay: 0.2s;
+}
+.project-hidden:nth-child(6) {
+  transition-delay: 0.1s;
+}
+
+/* Project Card Base Styles */
 .project-item {
   background: white;
   padding: 2.5rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: 1px solid #f1f2f6;
   width: 100%;
   max-width: 500px;
@@ -68,11 +122,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Shimmer Effect */
+.project-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 152, 219, 0.05),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.project-item:hover::before {
+  left: 100%;
 }
 
 .project-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: rgba(52, 152, 219, 0.2);
 }
 
 /* Project Header */
@@ -82,6 +160,7 @@
   align-items: center;
   margin-bottom: 1.5rem;
   width: 100%;
+  transition: all 0.6s ease-out;
 }
 
 .project-type {
@@ -113,6 +192,7 @@
   text-align: center;
   width: 100%;
   line-height: 1.3;
+  transition: all 0.6s ease-out;
 }
 
 .project-summary {
@@ -122,6 +202,7 @@
   text-align: center;
   width: 100%;
   font-size: 1rem;
+  transition: all 0.6s ease-out;
 }
 
 /* Project Highlights */
@@ -129,6 +210,7 @@
   margin-bottom: 1.5rem;
   width: 100%;
   text-align: center;
+  transition: all 0.6s ease-out;
 }
 
 .highlights-heading {
@@ -138,6 +220,7 @@
   font-weight: 600;
   text-align: center;
   width: 100%;
+  transition: all 0.6s ease-out;
 }
 
 .features-container {
@@ -154,6 +237,12 @@
   padding-left: 1.5rem;
   font-size: 0.95rem;
   text-align: left;
+  transition: all 0.3s ease;
+}
+
+.feature-point:hover {
+  color: #2c3e50;
+  transform: translateX(5px);
 }
 
 .feature-point::before {
@@ -163,12 +252,19 @@
   left: 0;
   font-weight: bold;
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.feature-point:hover::before {
+  transform: scale(1.2);
+  color: #27ae60;
 }
 
 /* Project Technologies */
 .project-tech {
   width: 100%;
   text-align: center;
+  transition: all 0.6s ease-out;
 }
 
 .tech-heading {
@@ -178,6 +274,7 @@
   font-weight: 600;
   text-align: center;
   width: 100%;
+  transition: all 0.6s ease-out;
 }
 
 .tech-container {
@@ -195,11 +292,97 @@
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 500;
-  transition: transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tech Badge Hover Effect */
+.tech-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.tech-badge:hover::before {
+  left: 100%;
 }
 
 .tech-badge:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Scroll-triggered animations for inner elements - ENTER */
+.project-visible .project-header-info {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+.project-visible .project-name {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.project-visible .project-summary {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.project-visible .project-highlights {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.project-visible .project-tech {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+/* Scroll-triggered animations for inner elements - EXIT */
+.project-hidden .project-header-info {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition-delay: 0.5s;
+}
+
+.project-hidden .project-name {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: 0.4s;
+}
+
+.project-hidden .project-summary {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: 0.3s;
+}
+
+.project-hidden .project-highlights {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: 0.2s;
+}
+
+.project-hidden .project-tech {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-delay: 0.1s;
 }
 
 /* Mobile Styles */
@@ -222,6 +405,18 @@
     padding: 2rem;
     max-width: 100%;
     margin: 0 auto;
+  }
+
+  .project-hidden {
+    transform: translateY(30px) scale(0.98);
+  }
+
+  .project-item:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+
+  .project-hidden .project-header-info {
+    transform: translateX(-20px);
   }
 
   .project-header-info {
@@ -324,4 +519,26 @@
 
 .project-item > * {
   text-align: center;
+}
+
+/* Optional: Add a subtle pulse animation to project cards */
+@keyframes subtlePulse {
+  0% {
+    transform: translateY(-15px) scale(1.02);
+  }
+  50% {
+    transform: translateY(-17px) scale(1.03);
+  }
+  100% {
+    transform: translateY(-15px) scale(1.02);
+  }
+}
+
+.project-item:hover {
+  animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
 }

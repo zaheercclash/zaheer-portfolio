@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Skills.css";
 
 const Skills = () => {
+  const [isVisible, setIsVisible] = useState({});
+  const sectionRefs = useRef([]);
+  const skillRefs = useRef([]);
+
   const skillCategories = [
     {
       category: "Frontend Development",
@@ -39,10 +43,43 @@ const Skills = () => {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible((prev) => ({
+            ...prev,
+            [entry.target.dataset.section]: entry.isIntersecting,
+          }));
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <div className="skills-header">
+        <div
+          ref={(el) => (sectionRefs.current[0] = el)}
+          data-section="header"
+          className={`skills-header ${
+            isVisible.header ? "skills-visible" : "skills-hidden"
+          }`}
+        >
           <h2 className="section-title">My Skills</h2>
           <p className="section-subtitle">
             Technologies and tools I use to bring ideas to life
@@ -51,7 +88,16 @@ const Skills = () => {
 
         <div className="skills-container">
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="skill-category">
+            <div
+              key={categoryIndex}
+              ref={(el) => (sectionRefs.current[categoryIndex + 1] = el)}
+              data-section={`category-${categoryIndex}`}
+              className={`skill-category ${
+                isVisible[`category-${categoryIndex}`]
+                  ? "skills-visible"
+                  : "skills-hidden"
+              }`}
+            >
               <div className="category-header">
                 <div className="category-icon">{category.icon}</div>
                 <h3>{category.category}</h3>
@@ -59,7 +105,14 @@ const Skills = () => {
 
               <div className="skills-grid">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="skill-item">
+                  <div
+                    key={skillIndex}
+                    className={`skill-item ${
+                      isVisible[`category-${categoryIndex}`]
+                        ? "skill-visible"
+                        : "skill-hidden"
+                    }`}
+                  >
                     <div className="skill-info">
                       <div className="skill-name-wrapper">
                         <span className="skill-name">{skill.name}</span>
@@ -69,7 +122,9 @@ const Skills = () => {
                         <div
                           className="skill-progress"
                           style={{
-                            width: `${skill.level}%`,
+                            width: isVisible[`category-${categoryIndex}`]
+                              ? `${skill.level}%`
+                              : "0%",
                             background: `linear-gradient(90deg, ${skill.color}, ${skill.color}dd)`,
                           }}
                         >
@@ -91,7 +146,13 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="skills-summary">
+        <div
+          ref={(el) => (sectionRefs.current[4] = el)}
+          data-section="summary"
+          className={`skills-summary ${
+            isVisible.summary ? "skills-visible" : "skills-hidden"
+          }`}
+        >
           <div className="summary-card">
             <div className="summary-icon">🚀</div>
             <div className="summary-content">

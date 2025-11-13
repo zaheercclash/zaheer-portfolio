@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Projects.css";
 
 const Projects = () => {
+  const [isVisible, setIsVisible] = useState({});
+  const projectRefs = useRef([]);
+
   const projects = [
     {
       title: "Hotel Room Booking Website",
@@ -89,6 +92,33 @@ const Projects = () => {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible((prev) => ({
+            ...prev,
+            [entry.target.dataset.index]: entry.isIntersecting,
+          }));
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    projectRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      projectRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section id="projects" className="projects-section">
       <div className="projects-container">
@@ -99,7 +129,14 @@ const Projects = () => {
         </p>
         <div className="projects-grid-container">
           {projects.map((project, index) => (
-            <div key={index} className="project-item">
+            <div
+              key={index}
+              ref={(el) => (projectRefs.current[index] = el)}
+              data-index={index}
+              className={`project-item ${
+                isVisible[index] ? "project-visible" : "project-hidden"
+              }`}
+            >
               <div className="project-header-info">
                 <div className="project-type">{project.category}</div>
                 <div className="project-completion">{project.status}</div>
