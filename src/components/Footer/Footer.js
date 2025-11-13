@@ -45,7 +45,7 @@ const Footer = () => {
               </p>
               <div className="footer-social">
                 <a
-                  href="https://linkedin.com/in/yourprofile"
+                  href="https://linkedin.com/in/ZaheerNaim"
                   className="social-link"
                   aria-label="LinkedIn"
                   target="_blank"
@@ -54,7 +54,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/zaheercclash"
                   className="social-link"
                   aria-label="GitHub"
                   target="_blank"
@@ -63,7 +63,7 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
                 <a
-                  href="https://twitter.com/yourusername"
+                  href="https://twitter.com/zaheernaim"
                   className="social-link"
                   aria-label="Twitter"
                   target="_blank"
