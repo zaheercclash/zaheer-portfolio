@@ -100,7 +100,7 @@ const Footer = () => {
                 <a href="mailto:zaheercclash@gmail.com">
                   zaheercclash@gmail.com
                 </a>
-                <a href="tel:+94700000000">+94 70 000 0000</a>
+                <a href="tel:+94775888849">+94 7 758 88849</a>
                 <span className="location">Kandy, Sri Lanka</span>
               </div>
             </div>

@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/94700000000", "_blank"); // Replace with your number
+    window.open("https://wa.me/94775888849", "_blank");
   };
 
   const handleSubmit = async (e) => {
@@ -102,7 +102,7 @@ const Contact = () => {
                   <div className="method-icon">💬</div>
                   <div className="method-content">
                     <h4>WhatsApp</h4>
-                    <p>+94 70 000 0000</p>
+                    <p>+94 7 758 88849</p>
                     <span className="method-hint">Quick responses</span>
                   </div>
                 </div>
