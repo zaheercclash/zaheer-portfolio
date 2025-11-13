@@ -11,6 +11,13 @@ const Footer = () => {
     }
   };
 
+  const handleServiceClick = (service) => {
+    // You can add functionality here later
+    console.log(`Service clicked: ${service}`);
+    // Or scroll to contact section for service inquiries
+    scrollToSection("contact");
+  };
+
   return (
     <footer className="footer">
       <div className="container">
@@ -26,13 +33,31 @@ const Footer = () => {
                 innovative solutions.
               </p>
               <div className="footer-social">
-                <a href="#" className="social-link" aria-label="LinkedIn">
+                <a
+                  href="https://linkedin.com/in/yourprofile"
+                  className="social-link"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>💼</span>
                 </a>
-                <a href="#" className="social-link" aria-label="GitHub">
+                <a
+                  href="https://github.com/yourusername"
+                  className="social-link"
+                  aria-label="GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>🐙</span>
                 </a>
-                <a href="#" className="social-link" aria-label="Twitter">
+                <a
+                  href="https://twitter.com/yourusername"
+                  className="social-link"
+                  aria-label="Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span>🐦</span>
                 </a>
               </div>
@@ -41,19 +66,33 @@ const Footer = () => {
             <div className="footer-links">
               <div className="link-group">
                 <h4>Navigation</h4>
-                <a onClick={() => scrollToSection("home")}>Home</a>
-                <a onClick={() => scrollToSection("about")}>About</a>
-                <a onClick={() => scrollToSection("skills")}>Skills</a>
-                <a onClick={() => scrollToSection("projects")}>Projects</a>
-                <a onClick={() => scrollToSection("contact")}>Contact</a>
+                <button onClick={() => scrollToSection("home")}>Home</button>
+                <button onClick={() => scrollToSection("about")}>About</button>
+                <button onClick={() => scrollToSection("skills")}>
+                  Skills
+                </button>
+                <button onClick={() => scrollToSection("projects")}>
+                  Projects
+                </button>
+                <button onClick={() => scrollToSection("contact")}>
+                  Contact
+                </button>
               </div>
 
               <div className="link-group">
                 <h4>Services</h4>
-                <a>Web Development</a>
-                <a>Mobile Apps</a>
-                <a>UI/UX Design</a>
-                <a>Consultation</a>
+                <button onClick={() => handleServiceClick("Web Development")}>
+                  Web Development
+                </button>
+                <button onClick={() => handleServiceClick("Mobile Apps")}>
+                  Mobile Apps
+                </button>
+                <button onClick={() => handleServiceClick("UI/UX Design")}>
+                  UI/UX Design
+                </button>
+                <button onClick={() => handleServiceClick("Consultation")}>
+                  Consultation
+                </button>
               </div>
 
               <div className="link-group">
@@ -62,7 +101,7 @@ const Footer = () => {
                   zaheercclash@gmail.com
                 </a>
                 <a href="tel:+94700000000">+94 70 000 0000</a>
-                <a>Kandy, Sri Lanka</a>
+                <span className="location">Kandy, Sri Lanka</span>
               </div>
             </div>
           </div>
@@ -86,8 +125,12 @@ const Footer = () => {
             <p>&copy; {currentYear} Zaheer. All rights reserved.</p>
           </div>
           <div className="footer-legal">
-            <a>Privacy Policy</a>
-            <a>Terms of Service</a>
+            <button onClick={() => console.log("Privacy Policy")}>
+              Privacy Policy
+            </button>
+            <button onClick={() => console.log("Terms of Service")}>
+              Terms of Service
+            </button>
           </div>
         </div>
       </div>
