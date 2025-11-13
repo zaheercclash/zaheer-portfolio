@@ -134,6 +134,20 @@ const GraduationIcon = () => (
   </svg>
 );
 
+const AwardIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <circle cx="12" cy="8" r="7" />
+    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+  </svg>
+);
+
 const About = () => {
   const [isVisible, setIsVisible] = useState({});
   const sectionRefs = useRef([]);
@@ -147,14 +161,14 @@ const About = () => {
 
   const education = [
     {
-      institution: "Kandy eSoft",
+      institution: "Kandy eSoft Metro Campus",
       degree: "Software Engineering Degree",
-      year: "2022-2024",
+      year: "2024-2025",
     },
     {
       institution: "Kandy BCAS Campus",
       degree: "HND in Computing",
-      year: "2020-2022",
+      year: "2022-2024",
     },
   ];
 
@@ -189,6 +203,15 @@ const About = () => {
 
   return (
     <section id="about" className="about">
+      <div className="about-background">
+        <div className="about-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+        <div className="about-glow"></div>
+      </div>
+
       <div className="container">
         <div
           ref={(el) => (sectionRefs.current[0] = el)}
@@ -213,27 +236,49 @@ const About = () => {
                   isVisible.intro ? "about-visible" : "about-hidden"
                 }`}
               >
-                <h3>My Journey</h3>
-                <p>
-                  I'm a passionate <strong>Software Engineer</strong> with
-                  expertise in modern web and mobile technologies. My journey
-                  began at Kandy BCAS Campus where I completed my HND, followed
-                  by advancing my skills at Kandy eSoft for my degree.
-                </p>
-                <p>
-                  I specialize in creating{" "}
-                  <strong>responsive web applications</strong> using React.js
-                  and Next.js, and{" "}
-                  <strong>cross-platform mobile applications</strong> using
-                  Flutter and Dart. Every project I undertake is crafted with
-                  attention to detail, performance, and user experience.
-                </p>
+                <div className="card-header">
+                  <div className="header-icon">
+                    <AwardIcon />
+                  </div>
+                  <h3>My Journey</h3>
+                </div>
+                <div className="intro-content">
+                  <p>
+                    I'm a passionate <strong>Software Engineer</strong> with
+                    expertise in modern web and mobile technologies. My journey
+                    began at Kandy BCAS Campus where I completed my HND,
+                    followed by advancing my skills at Kandy eSoft for my
+                    degree.
+                  </p>
+                  <p>
+                    I specialize in creating{" "}
+                    <strong>responsive web applications</strong> using React.js
+                    and Next.js, and{" "}
+                    <strong>cross-platform mobile applications</strong> using
+                    Flutter and Dart. Every project I undertake is crafted with
+                    attention to detail, performance, and user experience.
+                  </p>
+                  <div className="expertise-highlights">
+                    <div className="highlight-item">
+                      <div className="highlight-dot"></div>
+                      <span>Responsive Web Applications</span>
+                    </div>
+                    <div className="highlight-item">
+                      <div className="highlight-dot"></div>
+                      <span>Cross-Platform Mobile Apps</span>
+                    </div>
+                    <div className="highlight-item">
+                      <div className="highlight-dot"></div>
+                      <span>User-Centered Design</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div
                 ref={(el) => (sectionRefs.current[2] = el)}
                 data-section="skills"
-                className={`skills-grid ${
+                className={`skills-section ${
                   isVisible.skills ? "about-visible" : "about-hidden"
                 }`}
               >
@@ -261,7 +306,7 @@ const About = () => {
                   <RocketIcon />
                 </div>
                 <div className="stat-content">
-                  <h3>3+</h3>
+                  <h3>10+</h3>
                   <p>Projects Completed</p>
                 </div>
               </div>

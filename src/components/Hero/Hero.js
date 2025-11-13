@@ -186,8 +186,8 @@ const Hero = () => {
               isVisible ? "hero-visible" : "hero-hidden"
             }`}
           >
-            <span className="title-text">Software Engineer</span>
-            <span className="title-underline"></span>
+            <span className="title-text-hero">Software Engineer</span>
+            <span className="title-underline-hero"></span>
           </h2>
 
           <p
