@@ -117,7 +117,6 @@ const Skills = () => {
                     <div className="skill-info">
                       <div className="skill-name-wrapper">
                         <span className="skill-name">{skill.name}</span>
-                        <span className="skill-percentage">{skill.level}%</span>
                       </div>
                       <div className="skill-bar">
                         <div
