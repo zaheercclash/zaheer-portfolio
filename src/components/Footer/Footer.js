@@ -6,7 +6,7 @@ import {
   faTwitter,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./Footer.css";
 
 const Footer = () => {
@@ -27,10 +27,6 @@ const Footer = () => {
   const handleEmailClick = () => {
     window.location.href =
       "mailto:zaheercclash@gmail.com?subject=Portfolio Inquiry&body=Hello Zaheer, I would like to discuss a project with you.";
-  };
-
-  const handleWhatsAppClick = () => {
-    window.open("https://wa.me/94775888849", "_blank");
   };
 
   return (
