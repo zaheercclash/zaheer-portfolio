@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp as faWhatsappBrand } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import {
   faPaperPlane,
   faEnvelope,
@@ -110,7 +110,7 @@ const Contact = () => {
 
                 <div className="contact-method" onClick={handleWhatsAppClick}>
                   <div className="method-icon whatsapp-icon">
-                    <FontAwesomeIcon icon={faWhatsappBrand} />
+                    <FontAwesomeIcon icon={faWhatsapp} />
                   </div>
                   <div className="method-content">
                     <h4>WhatsApp</h4>
